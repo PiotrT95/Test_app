@@ -1,5 +1,5 @@
  //document.addEventListener("deviceready", onDeviceReady, false);
-    var db = window.openDatabase("Test_Database9", "1.0", "Test DB", 200000);
+    var db = window.openDatabase("Test_Database10", "2.0", "Test DB1", 200000);
     var globalQrID;
     var globalDate;
     //function will be called when device ready
