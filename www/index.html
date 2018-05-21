@@ -3,49 +3,317 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<script src="cordova.js"></script>
+		<script src="js/campusMapHandler.js"></script>
+		<script src="js/qrHandler.js"></script>
+		<script src="js/navigationandwebpagesHandler.js"></script>
+		<script src="js/databaseHandler.js"></script>
+		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
+		<link rel="stylesheet" href="css/Visit.css" />
 		<script src="js/jquery-2.1.4.min.js"></script>
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
-
-		<script src="js/network.js"></script>
-
-		<link rel="stylesheet" href="css/themes/random.min.css" />
-		<link rel="stylesheet" href="css/themes/jquery.mobile.icons.min.css" />
-		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
-
-
 	</head>
 	<body>
 		<!-- Main page -->
 		<div data-role="page" id="pageone">
-			<a href="#firstActivity"> 1
-			</a>
-			<a href="#secondActivity"> 2
-			</a>
+			<div id="wrapper">
+				<h1 class="rerum"><img class="logo" src="img/krk1.jpg" alt="">
+					<br style="clear: both;">
+					"Witamy w Krakowie"
+				</h1>
+				<ul class="nav">
+					<a href="#firstActivity">
+						<li class="bt">
+							<img class="icon" src="img/zabytki.jpg" width="30%" heigth="30%" alt="">
+							Zabytki
+						</li>
+					</a>
 
+					<a onclick="loadSubjectsPage('http://v-ie.uek.krakow.pl/~s180360/subjects/wyborKierunku.php');">
+						<li class="bt">
+							<img class="icon" src="img/book.png" width="30%" heigth="30%" alt="">
+							Przedmioty
+						</li>
+					</a>
+
+					<br style="clear: both;">
+
+					<a href="#secondActivity">
+						<li class="bt">
+							<img class="icon" src="img/qr.png" width="30%" heigth="30%" alt="">
+							Skaner QR
+						</li>
+					</a>
+
+					<a href="#fourthActivity">
+						<li class="bt">
+							<img class="icon" src="img/mapa.jpg" width="30%" heigth="30%" alt="">
+							Nawigacja
+						</li>
+					</a>
+
+					<br style="clear: both;">
+
+					<a href="#fifthActivity" onclick="onEventsActivityReady();" >
+						<li class="bt">
+							<img class="icon" src="img/calendar.png" width="30%" heigth="30%" alt="">
+							Wydarzenia
+						</li>
+					</a>
+
+					<a href="#sixthActivity" onclick="onContactsActivityReady();">
+						<li class="bt">
+							<img class="icon" src="img/tele.jpg" width="30%" heigth="30%" alt="">
+							Kontakty
+						</li>
+					</a>
+				</ul>
+			</div>
+
+			<div class="grid">
+				<div class="cell">
+					<a onclick="loadPage('https://www.facebook.com/uek.uniwersytetekonomiczny');"><img  src="img/facebook.png"  alt=""></a>
+				</div>
+				<div class="cell">
+					<a onclick="loadPage('http://www.goldenline.pl/uczelnie/uek/');"><img  src="img/google.png" alt=""></a>
+				</div>
+				<div class="cell">
+			  		<a onclick="loadPage('https://www.youtube.com/user/uekrakow');"><img src="img/youtube.png" alt=""></a>
+			  	</div>
+			  </div>
 		</div>
 
 <!-- Start of first page -->
 		<div data-role="page" id="firstActivity" >
+
 			<div data-role="header">
 				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
  
-				<h1>Głowa1</h1>
-
-
+				<h1>Zabytki/Miejsca</h1>
 			</div>
+			<div class="map-options">
+    			<div class="col1">
+    				<form class="building-form">
+						<div class="ui-field-contain">
+				            <select class="select-native-4" id="select-native-4" onchange="changeFunc(value); checkInformation(value);">
+				            	<option>Wybierz zabytek/miejsce:</option>
+				            	<optgroup label="Zabytki">
+						            <option value="1">Wawel</option>
+							        <option value="2">Smocza Jama</option>
+							        <option value="3">Kościół św. Apostołów Piotra i Pawła</option>
+							        <option value="4">Rynek Główny</option>
+									<option value="5">Sukiennice</option>
+							        <option value="6">Wieża Ratuszowa</option>
+							        <option value="7">Kościół Mariacki</option>
+							        <option value="8">Brama Floriańska</option>
+									<option value="9">Barbakan Krakowski</option>
+							        <option value="10">Planty</option>
+							        <option value="11">Teatr im. Juliusza Słowackiego</option>
+							        <option value="12">Plac Szczepański</option>
+									<option value="13">Okno Papieskie</option>
+							        <option value="14">Uniwersytet Jagieloński</option>
+				            	</optgroup>
+				            	<optgroup label="Przydatne miejsca">
+						            <option value="15">ZaUEK (Kawiarnia)</option>
+									<option value="16">Grota 2 (Kawiarnia)</option>
+									<option value="17">Bułka z makiem (Restauracja)</option>	
+					                <option value="18">Kiosk</option>	
+						            <option value="19">Bankomat</option>
+									<option value="20">Boisko</option>
+						            <option value="21">Kort</option>
+						        </optgroup>
+				             </select>
+						</div>
+					</form>
+    			</div>
 
-			<input type="button" onclick="checkNetwork()" value="Sprawdz polaczenie z siecia">
+    			<div class="col2">
+					<button type="button" class="building-information-button" id="building-information-button" disabled="disabled" onclick="onBuildingActivityReady();"><h1 class="ui-btn-icon-left ui-icon-info ui-alt-icon"> </h1></button>
+    			</div>
+			</div>
 			
+  			<div class="canvas">
+          		<canvas id="canvas" class="canvas-position" width="0" height="0" style="position: absolute"></canvas>
+          		<script type="text/javascript">
+   				draw();
+				</script>
+        	</div>
 		</div>
 
 		<!-- Start of second page -->
 		<div data-role="page" id="secondActivity">
+
 			<div data-role="header">
-				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
- 
-				<h1>Głowa2</h1>
+			<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+				<h1>QR Code</h1>
+			</div>
+
+	  		<div class="info">
+	  			<h2>
+	  				Szukasz informacji o budynku?
+	  				<br style="clear: both;">
+	  				Naciśnij przycisk poniżej i zeskanuj specjalnie oznaczony kod QR naszej aplikacji, aby wyświetlić informacje.
+	  			</h2>
+	  		</div>
+
+	  		<div class="info2">
+		  			<h2>
+		  				Przykładowy kod QR
+		  			</h2>
+	  		</div>
+	     	<img src = "img/przyklad.png" width="50%" heigth="50%">   	
+
+			<div data-role="content">
+	        	<p>
+	            	<a target="_blank" href="javascript:scan();" style="text-decoration: none"><button>Skanuj</button></a>
+	        	</p>
+	    	</div>
+		</div>
+
+		<!-- Start of third page -->
+		<div data-role="page" id="thirdActivity">
+
+			<div data-role="header">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>				
+				<h1>Trzecia aktywność</h1>
 			</div>
 		</div>
 
+		<!-- Start of fourth page -->
+		<div data-role="page" id="fourthActivity">
+
+			<div data-role="header" data-theme="a">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>				
+    			<h1>Nawigacja</h1>
+  			</div>
+
+  			<div class="info">
+  				<h2>
+  					Zagubiony?
+  					<br style="clear: both;">
+  					Naciśnij przycisk nawiguj, aby szybko uzyskać trasę z Twojej lokalizacji do kampusu/akademiku.
+  				</h2>
+  			</div>
+			<div class="grid">
+				<div class="mapcontainer">
+				<img src = "img/uek.png" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Kampus uczelni
+				</div>
+				<div class="cell">
+					ul. Rakowicka 27
+				</div>
+				<div class="cell">
+			  		<a class="button" onclick="checkLocalization('50.0680097,19.9545047');">Nawiguj</a>
+			  	</div>
+
+				<div class="mapcontainer">
+				<img src = "img/fafik.png" width="80%" heigth="80%">
+				</div>
+
+
+				<div class="cell">
+					Akademik Fafik
+				</div>
+				<div class="cell">
+					ul. Racławicka 9
+				</div>
+				<div class="cell">
+					<a class="button" onclick="checkLocalization('50.074565,19.919150');">Nawiguj</a>
+				</div>
+
+				<div class="mapcontainer">
+				<img src = "img/merkury.png" width="80%" heigth="80%">
+				</div>
+
+				<div class="cell">
+					Akademik Merkury
+				</div>
+				<div class="cell">
+					al. 29 Listopada 48
+				</div>
+				<div class="cell">
+					<a class="button" onclick="checkLocalization('50.082571,19.949358');">Nawiguj</a>
+				</div>
+			</div>
+
+		</div>
+
+
+		<!-- Start of fifth page -->
+		<div data-role="page" id="fifthActivity">
+
+			<div data-role="header" data-theme="a">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+    			<h1>Wydarzenia</h1>
+  			</div>
+  		    <div data-role="content">
+  			 	<div class="info3">
+		  			<h2>
+		  				Tutaj znajdziesz najciekawsze wydarzenia z życia uczelni.
+		  				<br style="clear: both;">
+		  				Naciśnij wydarzenie aby rozwinąć opis.
+		  				<br style="clear: both;">
+		  				Dzisiejsza data: 
+		  				<h5 id="date">
+		  				</h5>
+		  			</h2>
+		  		</div>
+     			<ul id="news">
+    			</ul>
+  			</div>
+		</div>
+		
+
+		<!-- Start of sixth page -->
+		<div data-role="page" id="sixthActivity">
+
+			<div data-role="header" data-theme="a">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+    			<h1>Kontakty</h1>
+  			</div>
+  			 <div data-role="content">
+  			 	<div class="info3">
+		  			<h2>
+		  				Tutaj znajdziesz najważniejsze kontakty na uczelni.
+		  				<br style="clear: both;">
+		  				Aby szybko wybrać numer lub napisać maila do wystarczy, że naciśniesz numer/adres wybranej osoby.
+		  			</h2>
+		  		</div>
+
+     			<ul id="contacts">
+    			</ul>
+  			</div>
+		</div>
+
+		<!-- Start of building page -->
+		<div data-role="page" id="buildingInformationActivity">
+
+			<div data-role="header">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+				<h1>Informacje o miejscu</h1>
+			</div>
+			<div data-role="content">
+				<h1 id="buildingName">
+				</h1>
+				<h1 id="buildingPhoto">
+				</h1>
+				<h1 id="buildingLocalization">
+				</h1>
+				<h6>
+					Sale w budynku:
+				</h6>
+				<h4 id="buildingRooms">
+				</h4>
+				<br>
+				<h6>
+					Przydatne miejsca:
+				</h6>
+				<h4 id="buildingUsefulPlaces">
+				</h4>
+  			</div>
+		</div>
 	</body>
 </html>
