@@ -63,7 +63,7 @@ img.onload = function() {
   canvas.height = img.height;
   ctx.drawImage(this, 0, 0);
 };
-img.src = "img/kampus2.png";
+img.src = "img/mapa.png";
 
 }
 
@@ -72,9 +72,9 @@ var ctx = document.querySelector("canvas").getContext("2d"),
     img = new Image;
     draw();
 img.onload = function() {
-  ctx.drawImage(this, 102, 230);
+  ctx.drawImage(this, 0, 0);
 };
-img.src = "img/glowny.png";
+img.src = "img/wawelloc.png";
 
 }
 
