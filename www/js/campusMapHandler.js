@@ -68,16 +68,16 @@ img.src = "img/mapa.png";
 }
 
 function draw1() {
-var ctx = document.querySelector("canvas").getContext("2d"),
+var canvas = document.getElementById('canvas');
+var ctx = canvas.getContext('2d');
     img = new Image;
-    draw();
 img.onload = function() {
+  canvas.width = img.width;
+  canvas.height = img.height;
   ctx.drawImage(this, 0, 0);
 };
-img.src = "img/wawelloc.png";
-
+img.src = "img/wawelloc.jpg";
 }
-
 function draw2() {
 var ctx = document.querySelector("canvas").getContext("2d"),
     img = new Image;
