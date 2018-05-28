@@ -1,5 +1,5 @@
  //document.addEventListener("deviceready", onDeviceReady, false);
-    var db = window.openDatabase("Test_Database13", "5.0", "Test DB4", 200000);
+    var db = window.openDatabase("Test_Database14", "6.0", "Test DB5", 200000);
     var globalQrID;
     var globalDate;
  
@@ -12,16 +12,10 @@
     function populateContactsDB(tx1) {
         tx1.executeSql('CREATE TABLE IF NOT EXISTS Contact (id INTEGER PRIMARY KEY AUTOINCREMENT, ContactName TEXT NOT NULL, ContactNumber TEXT NOT NULL, ContactMail TEXT NOT NULL, UNIQUE(ContactName))');
         
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Parlament Studencki Uniwersytetu Ekonomicznego w Krakowie", "12 2935585", "biuro@psuek.pl")'); 
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Biblioteka Główna Uniwersytetu Ekonomicznego w Krakowie", "12 2935009", "bguek@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Kierownik Dziekanatu Zarządzania", "12 2935724", "bienk@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Kierownik Dziekanatu Towaroznawstwa", "12 2935608", "nosalh@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Kierownik Dziekanatu Gospodarki i Administracji Publicznej", "12 2935920", "smolinsd@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Kierownik Dzienakatu Finansów i Prawa ", "12 2935843", "okreglig@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Dyrektor Kancelarii Rektora", "12 2935608", "kancelaria@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Kierownik Działu Spraw Bytowych", "12 2935130", "krupat@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Biuro ds. Osób Niepełnosprawnych", "12 2935120", "bon@uek.krakow.pl")');
-        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Sekretariat Studium WF", "12 2935070", "swfis@uek.krakow.pl ")');
+        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Mega Taxi", "12 19625", "biuro@megataxi.pl")'); 
+        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("InfoKraków, Sukiennice", "12 3542716", "sukiennice@infokrakow.pl")');
+        tx1.executeSql('INSERT INTO Contact(ContactName,ContactNumber, ContactMail) VALUES ("Centrum Informacji Turystycznej i Zakwaterowania", "12 4226091", "it@jordan.pl")');
+
         }
  
     function errorContactsCB(err) {
