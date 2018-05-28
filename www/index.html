@@ -3,10 +3,10 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		<script src="cordova.js"></script>
-		<script src="js/campusMapHandler.js"></script>
+		<script src="js/zabytki.js"></script>
 		<script src="js/qrHandler.js"></script>
 		<script src="js/navigationandwebpagesHandler.js"></script>
-		<script src="js/databaseHandler.js"></script>
+		<script src="js/database.js"></script>
 		<link rel="stylesheet" href="css/style.css">
 		<link rel="stylesheet" href="css/jquery.mobile-1.4.5.min.css" />
 		<link rel="stylesheet" href="css/Visit.css" />
@@ -29,13 +29,6 @@
 						</li>
 					</a>
 
-					<a onclick="loadSubjectsPage('http://v-ie.uek.krakow.pl/~s180360/subjects/wyborKierunku.php');">
-						<li class="bt">
-							<img class="icon" src="img/book.png" width="30%" heigth="30%" alt="">
-							Przedmioty
-						</li>
-					</a>
-
 					<br style="clear: both;">
 
 					<a href="#secondActivity">
@@ -45,7 +38,7 @@
 						</li>
 					</a>
 
-					<a href="#fourthActivity">
+					<a href="#thirdActivity">
 						<li class="bt">
 							<img class="icon" src="img/navigation.png" width="30%" heigth="30%" alt="">
 							Nawigacja
@@ -54,14 +47,8 @@
 
 					<br style="clear: both;">
 
-					<a href="#fifthActivity" onclick="onEventsActivityReady();" >
-						<li class="bt">
-							<img class="icon" src="img/calendar.png" width="30%" heigth="30%" alt="">
-							Wydarzenia
-						</li>
-					</a>
 
-					<a href="#sixthActivity" onclick="onContactsActivityReady();">
+					<a href="#fourthActivity" onclick="onContactsActivityReady();">
 						<li class="bt">
 							<img class="icon" src="img/tele.jpg" width="30%" heigth="30%" alt="">
 							Kontakty
@@ -143,7 +130,7 @@
 	  		<div class="info">
 	  			<h2>
 	  				<br style="clear: both;">
-	  				Naciśnij przycisk poniżej i zeskanuj specjalnie oznaczony kod QR naszej aplikacji, aby wyświetlić informacje.
+	  				Naciśnij przycisk poniżej i zeskanuj  kod QR.
 	  			</h2>
 	  		</div>
 
@@ -163,15 +150,6 @@
 
 		<!-- Start of third page -->
 		<div data-role="page" id="thirdActivity">
-
-			<div data-role="header">
-				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>				
-				<h1>Trzecia aktywność</h1>
-			</div>
-		</div>
-
-		<!-- Start of fourth page -->
-		<div data-role="page" id="fourthActivity">
 
 			<div data-role="header" data-theme="a">
 				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>				
@@ -358,34 +336,10 @@
 
 		</div>
 
-
-		<!-- Start of fifth page -->
-		<div data-role="page" id="fifthActivity">
-
-			<div data-role="header" data-theme="a">
-				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
-    			<h1>Wydarzenia</h1>
-  			</div>
-  		    <div data-role="content">
-  			 	<div class="info3">
-		  			<h2>
-		  				Tutaj znajdziesz najciekawsze wydarzenia z życia uczelni.
-		  				<br style="clear: both;">
-		  				Naciśnij wydarzenie aby rozwinąć opis.
-		  				<br style="clear: both;">
-		  				Dzisiejsza data: 
-		  				<h5 id="date">
-		  				</h5>
-		  			</h2>
-		  		</div>
-     			<ul id="news">
-    			</ul>
-  			</div>
-		</div>
 		
 
-		<!-- Start of sixth page -->
-		<div data-role="page" id="sixthActivity">
+		<!-- Start of fourth page -->
+		<div data-role="page" id="fourthActivity">
 
 			<div data-role="header" data-theme="a">
 				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
@@ -394,7 +348,7 @@
   			 <div data-role="content">
   			 	<div class="info3">
 		  			<h2>
-		  				Tutaj znajdziesz najważniejsze kontakty na uczelni.
+		  				Tutaj znajdziesz przydatne kontakty.
 		  				<br style="clear: both;">
 		  				Aby szybko wybrać numer lub napisać maila do wystarczy, że naciśniesz numer/adres wybranej osoby.
 		  			</h2>
@@ -419,15 +373,11 @@
 				</h1>
 				<h1 id="buildingLocalization">
 				</h1>
-				<h6>
-					Sale w budynku:
-				</h6>
+
 				<h4 id="buildingRooms">
 				</h4>
 				<br>
-				<h6>
-					Przydatne miejsca:
-				</h6>
+
 				<h4 id="buildingUsefulPlaces">
 				</h4>
   			</div>

@@ -1,69 +1,8 @@
  //document.addEventListener("deviceready", onDeviceReady, false);
-    var db = window.openDatabase("Test_Database11", "3.0", "Test DB2", 200000);
+    var db = window.openDatabase("Test_Database13", "5.0", "Test DB4", 200000);
     var globalQrID;
     var globalDate;
-    //function will be called when device ready
-    function onEventsActivityReady(){
-        var d = new Date();
-        var day = ("0" + d.getDate()).slice(-2)
-        var month = ("0" + (d.getMonth() + 1)).slice(-2)
-        var year = d.getFullYear();
-        var dateToDisplay = day+'-'+month+'-'+year;
-        var date = year+'-'+month+'-'+day;
-        globalDate = date;
-        $('#date').empty();
-        $('#date').append(dateToDisplay);
-        db.transaction(populateDB, errorCB, successCB);
-    }
  
-    //create table and insert some record
-    function populateDB(tx) {
-        tx.executeSql('CREATE TABLE IF NOT EXISTS Event (id INTEGER PRIMARY KEY AUTOINCREMENT, EventPhoto TEXT NOT NULL, EventName TEXT NOT NULL, EventDate TEXT NOT NULL, EventDesc TEXT NOT NULL, EventEndDate DATE, UNIQUE(EventName))');
-        
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Bylo", "23 kwiecień", "bylo", "2017-04-23")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Prawie Kino - Kino Samochodowe", "24 maja 2017", "Kino Samochodowe jest organizowane w ramach projektu Prawie Kino, który jest cyklem darmowych pokazów filmowych dla studentów. W ramach kina samochodowego zostaną wyświetlone dwa filmy na terenie parkingu koło pawilonu H. Głównym celem organizacji wydarzenia jest promocja edukacji filmowej wśród społeczności akademickiej.", "2017-05-24")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Trippin Day", "25 maja 2017", "Trippin’ Day to wydarzenie organizowane już kolejny raz na Kampusie UEK-u. Wydarzenie to ma na celu pokazanie obcych kultur studentom i zachęcenie ich do podróżowania.", "2017-05-25")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Dzień Uniwersytetu Ekonomicznego w Krakowie", "29 maja 2017", "Brak", "2017-05-29")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "AZS UEK CUP", "31 maja 2017", "AZS UEK CUP to turniej futsalu skierowany do uczniów szkół średnich mający na celu nie tylko promowanie aktywności fizycznej i sportowego trybu życia, ale również promocję Uniwersytetu Ekonomicznego oraz zaprezentowanie struktur działania Akademickiego Związku Sportowego. Do udziału w turnieju zamierzamy zaprosić reprezentacje sześciu szkół średnich z województwa małopolskiego. Podczas turnieju uczniowie będą mieli możliwość rywalizować z rówieśnikami oraz studentami. Najlepsi zawodnicy turnieju wezmą udział w „Meczu Gwiazd”,w którym zmierzą się z drużyną Kadry GAP Prof. dr hab. Jerzego Hausnera, złożonej głównie z absolwentów, pracowników oraz studentów Uniwersytetu Ekonomicznego w Krakowie. Ambasadorem turnieju będzie uznany komentator sportowy, były zawodników trzech największych krakowskich klubów, Pan Kazimierz Węgrzyn.", "2017-05-31")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Bezpieczna Uczelnia UEK", "1 czerwca 2017", "Happening realizowany w ramach Zintegrowanej Polityki Bezpieczeństwa, mający na celu uświadomienie jak i ograniczenie zagrożeń, z którymi na co dzień mają do czynienia studenci. Tematem 11 edycji wydarzenia jest terroryzm.", "2017-06-01")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "SOS - Społeczna Odpowiedzialność Studentów", "3 czerwca 2017", "SOS - Społeczna Odpowiedzialność Studentów to inicjatywa skierowana do studentów specjalności i kierunku prowadzonych przez Katedrę Zarządzania Międzynarodowego przy współpracy ze świetlicami środowiskowymi będącymi pod patronatem krakowskiego Ośrodka Adopcyjno-Opiekuńczego Towarzystwa Przyjaciół Dzieci przy ul. Lenartowicza 14. Celem naszego projektu jest zaangażowanie studentów w działalność pozauczelnianą, pokazanie, że ważne jest to, jak pomagamy innym i jak dzięki temu rozwijamy swoją wrażliwość i umiejętności. Ma on uzmysłowić studentom potrzebę pomocy drugiemu człowiekowi oraz umożliwić zaangażowanie się w społeczne aspekty życia. Dzięki licznym mini programom edukacyjnym, zajęciom profilowanym, grom i zabawom, studenci pokazują dzieciom, że warto być wrażliwym na potrzeby innych, rozwijać siebie i dążyć do spełnienia marzeń.", "2017-06-03")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Zaangażowanie organizacyjne - aspekty psychospołeczne", "8 czerwca 2017", "Obszarem zainteresowania podjętym na konferencji będzie szeroko rozumiana problematyka zaangażowania w organizacji. Interesuje nas wielość spojrzeń z punktu widzenia różnych dyscyplin naukowych: psychologicznej, socjologicznej i nauk o zarządzaniu. Uważamy, że warto odnajdywać związki, badać i porównywać perspektywy badawcze w kontekście zaangażowania organizacyjnego w powiązaniu z kwestiami zaufania, przywództwa, poczucia wpływu, komunikowania, motywacji, wartości, czy też z problematyką rekrutacji i kariery zawodowej. Podane tu sfery związane z zaangażowaniem stanowią tylko propozycję wystąpień, nie zaś zamkniętą pulę tematów. Stoimy na stanowisku, iż zaangażowanie organizacyjne (jego poziom, charakter, specyfika) stanowi jeden z kluczowych składników kultury organizacyjnej, nierozerwalnie łącząc się z podmiotowością pracowników stanowiąc warunek pomyślności ekonomicznej racjonalnie prowadzonego biznesu oraz konkurencyjności organizacji na rynku.", "2017-06-08")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "XIII Pożegnanie Absolwentów", "24 czerwca 2017", "Gala Pożegnania Absolwentów specjalności zarządzanie międzynarodowe i logistyka międzynarodowa prowadzonych przez Katedrę Zarządzania Międzynarodowego. W uroczystości biorą udział absolwenci, zaproszeni goście, Władze uczelni oraz pracownicy Katedry.", "2017-04-05")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Konferencja Naukowa pt. Polityka rozwoju społeczno-ekonomicznego wobec nowych wyzwań", "22–23 września 2017", "Konferencja naukowa wpisuje się w cykl organi zowanych corocznie spotkań Katedr zajmujących się problematyką polityki gospodarczej, społecznej i regionalnej. Tegoroczna konferencja powiązana jest z obchodami jubileuszu 70-lecia urodzin Profesora Andrzeja Pruska.", "2017-09-24")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "8th International Conference on Small and medium-sized enterprises in the globalized world", "28–30 września 2017", "The main objective of the present conference is to encourage researches concerning SMEs in a globalized world through networking and collaboration between academics and practitioners. The conference also aims to serve as a forum between entrepreneurs, managers, academics and researchers who are invited to exchange information, knowledge and experience in the broad filed of SMEs matters.", "2017-10-01")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "XIV Targi Pracy UEK", "12 października 2017", " Studenci i absolwenci UEK oraz studenci pozostałych Uczelni będą mieli okazję spotkać się z wieloma pracodawcami (głównie z woj. małopolskiego) i poznać ich aktualne oferty pracy, praktyk i staży. Uczestnicy będą mogli również skorzystać z CV Point i skonsultować swoje dokumenty aplikacyjne. W programie wydarzenia przewidziano również prezentacje i warsztaty prowadzone przez firmy-Wystawców.", "2017-10-12")');
-        tx.executeSql('INSERT INTO Event(EventPhoto, EventName,EventDate, EventDesc, EventEndDate) VALUES ("<img id=theImg src=img/event.png />", "Andrzej Malawski Memorial Session", "23 października 2017", "Sesja naukowa poświęcona pamięci Profesora Andrzeja Malawskiego. W jej ramach przewidziane są referaty prof. Odeda Starka (Georgetown University, Bonn Universitat, Uniwersytet Warszawski), prof. Jana Wernera (Minnesota University) oraz prof. Jacka Osiewalskiego (UEK)", "2017-10-24")');
-    }
- 
-    function errorCB(err) {
-        db.transaction(queryDB,errorCB);
-    }
- 
-    function successCB() {
-        db.transaction(queryDB,errorCB);
-    }
- 
-    function queryDB(tx){
-        var checkDate = globalDate;
-        tx.executeSql('SELECT * FROM Event WHERE date(EventEndDate) > date(?)',[checkDate],querySuccess,errorCB);
-    }
- 
-    function querySuccess(tx,result){
-      //  $('#news').empty();
-        $.each(result.rows,function(index){
-            var row = result.rows.item(index);
-            var dataEvent = row['EventDate'];
-            var replacedDataEvent = dataEvent.split(' ').join('%20');
-            var titleEvent = row['EventName'];
-            var replacedTitleEvent = titleEvent.split(' ').join('%20');
-            var descEvent = row['EventDesc'];
-            var replacedDescEvent = descEvent.split(' ').join('%20');
-            $('#news').append('<li><div class="photo">'+row['EventPhoto']+'</div><div class="dropdown"><input type="checkbox" id="checkbox_'+index+'"><label class="event-item" for="checkbox_'+index+'"><h3>'+row['EventName']+'</h3><h3>'+row['EventDate']+'</h3></label><ul class="event"><li>Opis: '+row['EventDesc']+'<br><b>Wyslij wydarzenie sms-em: <a href=sms:?body='+replacedTitleEvent+'-'+replacedDataEvent+'-'+replacedDescEvent+'>Wyslij</a><br/>Wyslij wydarzenie e-mailem: <a href=mailto:?subject=Notatka%20z%20aplikacji%20Visit%20UEK&body='+replacedTitleEvent+'-'+replacedDataEvent+'-'+replacedDescEvent+'>Wyslij</a></b></li></ul><br></div></li>');
-        });
- 
-        $('#news').listview();
-    }
-
         //function will be called when device ready
     function onContactsActivityReady(){
         db.transaction(populateContactsDB, errorContactsCB, successContactsCB);
