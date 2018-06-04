@@ -3,19 +3,8 @@
 	<head>
 		<meta http-equiv="Content-type" content="text/html; charset=utf-8">
 		
-<script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
-<script>
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyAES-ukgbz9eMABCdtJf0Yx3BBAIElAPH8",
-    authDomain: "visitcracow-d2018.firebaseapp.com",
-    databaseURL: "https://visitcracow-d2018.firebaseio.com",
-    projectId: "visitcracow-d2018",
-    storageBucket: "visitcracow-d2018.appspot.com",
-    messagingSenderId: "239147680488"
-  };
-  firebase.initializeApp(config);
-</script>
+		<script src="js/firebaseService.js"></script>
+		<script src="js/firebase.js"></script>
 
 		<script src="cordova.js"></script>
 		<script src="js/zabytki.js"></script>
@@ -29,6 +18,47 @@
 		<script src="js/jquery.mobile-1.4.5.min.js"></script>
 	</head>
 	<body>
+
+		<body onload="init()">
+
+<!-- MAIN PAGE -->
+<div data-role="page" id="logInPage">
+    <div data-role="main" class="ui-content">
+        <div class="login-box">
+            <div class="firstHeader">
+                <h1>VisitCracow</h1>
+                <p>Zaloguj się</p>
+            </div>
+            <div class="formSignIn">
+                <input type="email" data-role="none" placeholder="Email" id="emailLog"/>
+                <input type="password" data-role="none" placeholder="Hasło" id="passwordLog"/>
+            </div>
+            <a href="#" id="lostPassword" class="ui-btn">Zapomniałeś hasła?</a>
+            <button id="login" data-role="none" class="loginBtn loginBtnFirebase">Zaloguj</button>
+            <button id="facebookLogIn" data-role="none" class="loginBtn loginBtn--facebook">Login with Facebook</button>
+            <button id="googleLogIn" data-role="none" class="loginBtn loginBtn--google">Login with Google</button>
+            <a href="#createAccountPage" data-role="none" class="ui-btn btnRegister">Lub utwórz konto</a>
+        </div>
+    </div>
+</div>
+
+<!-- CREATE ACCOUNT PAGE -->
+<div data-role="page" id="createAccountPage">
+    <div data-role="main" class="ui-content">
+        <div class="login-box">
+            <div class="firstHeader">
+                <h1>VisitCracow</h1>
+                <p>Zarejestruj się</p>
+            </div>
+            <div class="formRegister">
+                <input type="email" data-role="none" placeholder="Email" id="emailReg" required/>
+                <input type="password" data-role="none" placeholder="Hasło" id="passwordReg" required/>
+                <input type="password" data-role="none" placeholder="Powtórz hasło" id="passwordCheck" required/>
+                <button id="register" data-role="none" class="loginBtn loginBtnFirebase">Zarejestruj konto</button>
+            </div>
+        </div>
+    </div>
+</div>
 		<!-- Main page -->
 		<div data-role="page" id="pageone">
 			<div id="wrapper">
