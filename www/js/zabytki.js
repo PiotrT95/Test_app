@@ -1,10 +1,13 @@
+var zabytek;
 function changeFunc($value) {
   if($value == "1"){
     draw1();
-	var zabytek = "wawel";
-	localStorage.setItem("monument", zabytek);
+	zabytek = "wawel";
+	//localStorage.setItem("monument", zabytek);
   }else if ($value == "2"){
     draw2();
+	zabytek = "smoczajama";
+	//localStorage.setItem("monument", zabytek);
   }else if ($value == "3"){
     draw3();
   }else if ($value == "4"){
@@ -47,13 +50,14 @@ function changeFunc($value) {
 }
 
 function monumentInfo() {
-var mon = localStorage.getItem("monument");
+//var mon = localStorage.getItem("monument");
 
-  if(mon == "wawel"){
+  if(zabytek == "wawel"){
     window.location.href = 'http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html';
-
-  }else if ($value == "2"){
-    draw2();
+	//window.alert("raz");
+  }else if (zabytek == "smoczajama"){
+    window.location.href = 'http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html';
+		//window.alert("dwa");
   }else if ($value == "3"){
     draw3();
   }else if ($value == "4"){
