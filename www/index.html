@@ -21,44 +21,7 @@
 
 		<body onload="init()">
 
-<!-- MAIN PAGE -->
-<div data-role="page" id="logInPage">
-    <div data-role="main" class="ui-content">
-        <div class="login-box">
-            <div class="firstHeader">
-                <h1>VisitCracow</h1>
-                <p>Zaloguj się</p>
-            </div>
-            <div class="formSignIn">
-                <input type="email" data-role="none" placeholder="Email" id="emailLog"/>
-                <input type="password" data-role="none" placeholder="Hasło" id="passwordLog"/>
-            </div>
-            <a href="#" id="lostPassword" class="ui-btn">Zapomniałeś hasła?</a>
-            <button id="login" data-role="none" class="loginBtn loginBtnFirebase">Zaloguj</button>
-            <button id="facebookLogIn" data-role="none" class="loginBtn loginBtn--facebook">Login with Facebook</button>
-            <button id="googleLogIn" data-role="none" class="loginBtn loginBtn--google">Login with Google</button>
-            <a href="#createAccountPage" data-role="none" class="ui-btn btnRegister">Lub utwórz konto</a>
-        </div>
-    </div>
-</div>
 
-<!-- CREATE ACCOUNT PAGE -->
-<div data-role="page" id="createAccountPage">
-    <div data-role="main" class="ui-content">
-        <div class="login-box">
-            <div class="firstHeader">
-                <h1>VisitCracow</h1>
-                <p>Zarejestruj się</p>
-            </div>
-            <div class="formRegister">
-                <input type="email" data-role="none" placeholder="Email" id="emailReg" required/>
-                <input type="password" data-role="none" placeholder="Hasło" id="passwordReg" required/>
-                <input type="password" data-role="none" placeholder="Powtórz hasło" id="passwordCheck" required/>
-                <button id="register" data-role="none" class="loginBtn loginBtnFirebase">Zarejestruj konto</button>
-            </div>
-        </div>
-    </div>
-</div>
 		<!-- Main page -->
 		<div data-role="page" id="pageone">
 			<div id="wrapper">
@@ -152,7 +115,7 @@
     			</div>
 
     			<div class="col2">
-					<button type="button" class="building-information-button" id="building-information-button" disabled="disabled" onclick="onBuildingActivityReady();"><h1 class="ui-btn-icon-left ui-icon-info ui-alt-icon"> </h1></button>
+					<button type="button" class="building-information-button" id="building-information-button" disabled="disabled" onclick="loadPage('http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html');"><h1 class="ui-btn-icon-left ui-icon-info ui-alt-icon"> </h1></button>
     			</div>
 			</div>
 			
