@@ -1,8 +1,10 @@
 var zabytek;
+var inAppBrowserRef;
 function changeFunc($value) {
   if($value == "1"){
     draw1();
 	zabytek = "wawel";
+	
 	//localStorage.setItem("monument", zabytek);
   }else if ($value == "2"){
     draw2();
@@ -53,8 +55,11 @@ function monumentInfo() {
 //var mon = localStorage.getItem("monument");
 
   if(zabytek == "wawel"){
-    window.location.href = 'http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html';
-	//window.alert("raz");
+    var target = "_blank";
+    var options = "location=yes,hidden=yes";
+    var url = "http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html";
+    inAppBrowserRef = cordova.InAppBrowser.open(url, target, options);
+	
   }else if (zabytek == "smoczajama"){
     window.location.href = 'http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html';
 		//window.alert("dwa");
