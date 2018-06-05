@@ -61,6 +61,16 @@
 							<img class="icon" src="img/tele.jpg" width="30%" heigth="30%" alt="">
 							Kontakty
 						</li>
+					</a
+					
+					<br style="clear: both;">
+
+
+					<a href="#fifthActivity" >
+						<li class="bt">
+							<img class="icon" src="img/tele.jpg" width="30%" heigth="30%" alt="">
+							Opisy
+						</li>
 					</a>
 				</ul>
 			</div>
@@ -115,7 +125,7 @@
     			</div>
 
     			<div class="col2">
-					<button type="button" class="building-information-button" id="building-information-button" disabled="disabled" onclick="monumentInfo();"><h1 class="ui-btn-icon-left ui-icon-info ui-alt-icon"> </h1></button>
+					<p>tutaj</p><button type="button" class="building-information-button" id="building-information-button" disabled="disabled" onclick="monumentInfo();"><h1 class="ui-btn-icon-left ui-icon-info ui-alt-icon"> </h1></button>
     			</div>
 			</div>
 			
@@ -367,6 +377,51 @@
   			</div>
 		</div>
 
+		<!-- Start of fifth page -->
+		<div data-role="page" id="fifthActivity" >
+
+			<div data-role="header">
+				<a href="#" data-rel="back" class="ui-btn-left ui-btn ui-btn-inline ui-mini ui-corner-all ui-btn-icon-left ui-icon-back"></a>
+ 
+				<h1>Zabytki/Miejsca</h1>
+			</div>
+			<div class="map-options">
+    			<div class="col1">
+    				<form class="building-form">
+						<div class="ui-field-contain">
+						<select class="select-native-4" id="select-native-4">
+				            	<option>Wybierz zabytek/miejsce:</option>
+				            	<optgroup label="Zabytki">
+						            <option value="1" onchange="loadPage('http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html');">Wawel</option>
+							        <option value="2" onchange="loadPage('http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html');" >Smocza Jama</option>
+							        <option value="3">Kościół św. Apostołów Piotra i Pawła</option>
+							        <option value="4">Rynek Główny</option>
+									<option value="5">Sukiennice</option>
+							        <option value="6">Wieża Ratuszowa</option>
+							        <option value="7">Kościół Mariacki</option>
+							        <option value="8">Brama Floriańska</option>
+									<option value="9">Barbakan Krakowski</option>
+							        <option value="10">Planty</option>
+							        <option value="11">Teatr im. Juliusza Słowackiego</option>
+							        <option value="12">Plac Szczepański</option>
+									<option value="13">Okno Papieskie</option>
+							        <option value="14">Uniwersytet Jagieloński</option>
+				            	</optgroup>
+
+				             </select>
+						</div>
+					</form>
+    			</div>
+
+			</div>
+			
+  			<div class="canvas">
+          		<canvas id="canvas" class="canvas-position" width="0" height="0" style="position: absolute"></canvas>
+          		<script type="text/javascript">
+   				draw();
+				</script>
+        	</div>
+		</div>
 		<!-- Start of building page -->
 		<div data-role="page" id="buildingInformationActivity">
 
