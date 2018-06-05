@@ -46,7 +46,7 @@ function changeFunc($value) {
 
 function monumentInfo($value) {
   if($value == "1"){
-    window.open('http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html');
+    window.location.href = 'http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html';
   }else if ($value == "2"){
     draw2();
   }else if ($value == "3"){
