@@ -1,6 +1,8 @@
 function changeFunc($value) {
   if($value == "1"){
     draw1();
+	var zabytek = "wawel";
+	localStorage.setItem("monument", zabytek);
   }else if ($value == "2"){
     draw2();
   }else if ($value == "3"){
@@ -44,9 +46,12 @@ function changeFunc($value) {
   }  
 }
 
-function monumentInfo($value) {
-  if($value == "1"){
+function monumentInfo() {
+var mon = localStorage.getItem("monument");
+
+  if(mon == "wawel"){
     window.location.href = 'http://wizard.uek.krakow.pl/~s188487/web/zabytki/zabytek.html';
+
   }else if ($value == "2"){
     draw2();
   }else if ($value == "3"){
