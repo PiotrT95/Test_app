@@ -1,5 +1,5 @@
  //document.addEventListener("deviceready", onDeviceReady, false);
-    var db = window.openDatabase("Test_Database14", "6.0", "Test DB5", 200000);
+    var db = window.openDatabase("Test_Database15", "7.0", "Test DB6", 200000);
     var globalQrID;
     var globalDate;
  
