@@ -52,20 +52,20 @@
  
     //create table and insert some record
     function populateBuildingDB(tx2) {
-        tx2.executeSql('CREATE TABLE IF NOT EXISTS Building (id INTEGER PRIMARY KEY AUTOINCREMENT, BuildingName TEXT NOT NULL, BuildingPhoto TEXT NOT NULL, BuildingLocalization TEXT NOT NULL, BuildingUsefulPlaces TEXT NOT NULL, BuildingRooms TEXT NOT NULL, UNIQUE(BuildingName))');   
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Wawel", "<img id=theImg src=img/wawel.jpg />", "<img id=theImg src=img/wawelloc.jpg />", "Test1", "Test2")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Smocza Jama", "<img id=theImg src=img/smoczajama.jpg />", "<img id=theImg src=img/jamaloc.jpg />", "Test3", "Test4")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Kościół św. Apostołów Piotra i Pawła", "<img id=theImg src=img/kosciolpiotrpawel.jpg />", "<img id=theImg src=img/piotrpawel.jpg />", "Test5", "Test6")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Rynek Główny", "<img id=theImg src=img/rynekglowny.jpg />", "<img id=theImg src=img/rynekloc.jpg />", "Test7", "Test8")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Sukiennice", "<img id=theImg src=img/sukienice.jpg />", "<img id=theImg src=img/sukieniceloc.jpg />", "Test9", "Test10")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Wieża Ratuszowa", "<img id=theImg src=img/wiezaratuszowa.jpg />", "<img id=theImg src=img/wiezaloc.jpg />", "Test11", "Test12")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Kościół Mariacki", "<img id=theImg src=img/kosciolmariacki.jpg />", "<img id=theImg src=img/mariackiloc.jpg />", "Test13", "Test14")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Brama Floriańska", "<img id=theImg src=img/bramaflorianska.jpg />", "<img id=theImg src=img/bramaloc.jpg />", "Test15", "Test16")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Planty", "<img id=theImg src=img/planty.jpg />", "<img id=theImg src=img/barbakanloc.jpg />", "Test17", "Test18")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Teatr im. Juliusza Słowackiego", "<img id=theImg src=img/teatrslowackiego.jpg />", "<img id=theImg src=img/plantyloc.jpg />", "Test19", "Test20")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Okno Papieskie", "<img id=theImg src=img/placszczepanski.jpg />", "<img id=theImg src=img/placloc.jpg />", "Test21", "Test22")');
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Okno Papieskie", "<img id=theImg src=img/oknopapieskie.jpg />", "<img id=theImg src=img/oknoloc.jpg />", "Test23", "Test24")'); 
-        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization,BuildingUsefulPlaces,BuildingRooms) VALUES ("Universitet Jagieloński", "<img id=theImg src=img/uj.jpg />", "<img id=theImg src=img/ujloc.jpg />", "Test25", "Test26")'); 
+        tx2.executeSql('CREATE TABLE IF NOT EXISTS Building (id INTEGER PRIMARY KEY AUTOINCREMENT, BuildingName TEXT NOT NULL, BuildingPhoto TEXT NOT NULL, BuildingLocalization TEXT NOT NULL, UNIQUE(BuildingName))');   
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Wawel", "<img id=theImg src=img/wawel.jpg />", "<img id=theImg src=img/wawelloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Smocza Jama", "<img id=theImg src=img/smoczajama.jpg />", "<img id=theImg src=img/jamaloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Kościół św. Apostołów Piotra i Pawła", "<img id=theImg src=img/kosciolpiotrpawel.jpg />", "<img id=theImg src=img/piotrpawel.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Rynek Główny", "<img id=theImg src=img/rynekglowny.jpg />", "<img id=theImg src=img/rynekloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Sukiennice", "<img id=theImg src=img/sukienice.jpg />", "<img id=theImg src=img/sukieniceloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Wieża Ratuszowa", "<img id=theImg src=img/wiezaratuszowa.jpg />", "<img id=theImg src=img/wiezaloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Kościół Mariacki", "<img id=theImg src=img/kosciolmariacki.jpg />", "<img id=theImg src=img/mariackiloc.jpg />",)'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Brama Floriańska", "<img id=theImg src=img/bramaflorianska.jpg />", "<img id=theImg src=img/bramaloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Planty", "<img id=theImg src=img/planty.jpg />", "<img id=theImg src=img/barbakanloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Teatr im. Juliusza Słowackiego", "<img id=theImg src=img/teatrslowackiego.jpg />", "<img id=theImg src=img/plantyloc.jpg />", )'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Okno Papieskie", "<img id=theImg src=img/placszczepanski.jpg />", "<img id=theImg src=img/placloc.jpg />")');
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Okno Papieskie", "<img id=theImg src=img/oknopapieskie.jpg />", "<img id=theImg src=img/oknoloc.jpg />")'); 
+        tx2.executeSql('INSERT INTO Building(BuildingName,BuildingPhoto,BuildingLocalization) VALUES ("Universitet Jagieloński", "<img id=theImg src=img/uj.jpg />", "<img id=theImg src=img/ujloc.jpg />")'); 
         }
  
     function errorBuildingCB(err) {
@@ -88,8 +88,7 @@
         $('#buildingDesc').empty();
         $('#buildingPhoto').empty();
         $('#buildingLocalization').empty();
-        $('#buildingRooms').empty();
-        $('#buildingUsefulPlaces').empty();
+
         $.each(result2.rows,function(index){
             var row = result2.rows.item(index);
 
@@ -97,48 +96,7 @@
             $('#buildingDesc').append(row['BuildingDesc']);
             $('#buildingPhoto').prepend(row['BuildingPhoto'])
             $('#buildingLocalization').prepend(row['BuildingLocalization'])
-            $('#buildingRooms').append(row['BuildingRooms']);
-            $('#buildingUsefulPlaces').append(row['BuildingUsefulPlaces']);
-        });
-                        
-    }
 
-    function onQrActivityReady(qrID){
-        globalQrID = qrID;
-        window.location.href = "#buildingInformationActivity";
-        db.transaction(populateBuildingDB, errorQrCB, successQrCB);
-
-    }
-    function errorQrCB(err) {
-        db.transaction(queryQrDB,errorQrCB);
-    }
- 
-    function successQrCB() {
-        db.transaction(queryQrDB,errorQrCB);
-    }
- 
-    function queryQrDB(tx2){
-        var localQrID = globalQrID;
-        tx2.executeSql('SELECT * FROM Building WHERE id='+localQrID+'',[],queryQrSuccess,errorQrCB); 
-    }
- 
-    function queryQrSuccess(tx2,result2){
-
-        $('#buildingName').empty();
-        $('#buildingDesc').empty();
-        $('#buildingPhoto').empty();
-        $('#buildingLocalization').empty();
-        $('#buildingRooms').empty();
-        $('#buildingUsefulPlaces').empty();
-        $.each(result2.rows,function(index){
-            var row = result2.rows.item(index);
-
-            $('#buildingName').append(row['BuildingName']);
-            $('#buildingDesc').append(row['BuildingDesc']);
-            $('#buildingPhoto').prepend(row['BuildingPhoto'])
-            $('#buildingLocalization').prepend(row['BuildingLocalization'])
-            $('#buildingRooms').append(row['BuildingRooms']);
-            $('#buildingUsefulPlaces').append(row['BuildingUsefulPlaces']);
         });
                         
     }
